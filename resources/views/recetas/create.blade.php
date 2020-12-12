@@ -3,7 +3,7 @@
     <a type="button" class="btn btn-primary" href={{ route('recetas.index') }}>Regresar</a>
 @endsection
 @section('content')
-    <h2 class="text-center mb-5">Crea tus recetas</h2>
+    <h2 class="text-center mb-5">Crea tus recetas propias</h2>
     {{$category}}
     <div class="row justify-content-center mt-2">
         <div class="col-md-8">
