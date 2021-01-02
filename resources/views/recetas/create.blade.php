@@ -4,7 +4,6 @@
 @endsection
 @section('content')
     <h2 class="text-center mb-5">Crea tus recetas propias</h2>
-    {{$category}}
     <div class="row justify-content-center mt-2">
         <div class="col-md-8">
             <form method="POST" action="{{ route('recetas.store') }}" novalidate>
@@ -16,14 +15,32 @@
                     @enderror"
                     id="name" required="" value={{old('name')}}>
                     @error('name')
-                    <span class="invalid-feedback d-block" role="alert">
-                        <strong>{{ $message }}</strong>
-                    </span>
-                @enderror
+                        <span class="invalid-feedback d-block" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                    @enderror
                 </div>
                 <div class="form-group">
                     <label for="description">Descripcion</label>
-                    <input type="text" name="description" class="form-control" id="description" required="">
+                    <input type="text" name="description" class="form-control @error('description')
+                        is-invalid
+                    @enderror" id="description" required="" value={{old('description')}}>
+                    @error('description')
+                        <span class="invalid-feedback d-block" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                    @enderror
+                </div>
+                <div class="form-group">
+                    <label for="category">Categoria</label>
+                    <select name="category" class="form-control @error('category')
+                        is-invalid
+                    @enderror" id="category">
+                    <option value="">---Seleccione---</option>
+                        @foreach($category as $id => $categorys)
+                            <option value="{{$id}} ">{{$categorys}}</option>
+                        @endforeach
+                    </select>
                 </div>
                 <div class="form-group">
                     <button type="submit" class="btn btn-primary">Guardar</button>
