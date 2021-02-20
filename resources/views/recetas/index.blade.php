@@ -14,21 +14,17 @@
     </tr>
   </thead>
   <tbody>
-    <tr>
-      <th scope="row">Pizza Ecuatoriana</th>
-      <td>Pizza</td>
-      <td>Comer</td>
-    </tr>
-    <tr>
-      <th scope="row">Sancocho de cerdo</th>
-      <td>Sopas</td>
-      <td>Comer</td>
-    </tr>
-    <tr>
-      <th scope="row">Shawuarma</th>
-      <td>Comida rapida</td>
-      <td>Comer</td>
-    </tr>
+    @foreach($userRecetas as $userReceta)
+                <tr>
+                    <td>{{$userReceta->name}}</td>
+                    <td>{{$userReceta->categoriaReceta->nombre}}</td>
+                    <td>
+                    <a href="{{route('recetas.show',['receta'=>$userReceta->id])}}" class="btn btn-success">Ver</a>
+                    <a href="{{route('recetas.edit',['receta'=>$userReceta->id])}}" class="btn btn-dark">Editar</a>
+                    <a href="" class="btn btn-danger">Eliminar</a>
+                    </td>
+                </tr>
+             @endforeach
   </tbody>
 </table>
     </div>

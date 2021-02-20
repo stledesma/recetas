@@ -46,8 +46,8 @@
                         is-invalid
                     @enderror" id="category">
                     <option value="">---Seleccione---</option>
-                        @foreach($category as $id => $categorys)
-                            <option value="{{$id}} ">{{$categorys}}</option>
+                        @foreach($categorias as $categorys)
+                            <option value="{{$categorys->id}}" {{old('category')==$categorys->id ? 'selected':''}}>{{$categorys->nombre}}</option>
                         @endforeach
                     </select>
                 </div>
@@ -64,14 +64,14 @@
                     @enderror
                 </div>
                 <div class="form-group">
-                    <label for="preparation">Preparacion</label>
-                    <input type="hidden" name="preparation"  id="preparation" required="" value={{old('preparation')}}>
-                    <trix-editor input="preparation" class="form-control @error('preparation')
-                        is-invalid
-                    @enderror"></trix-editor>
+                    <label for="preparation">Preparación</label>
+                    <input id=preparation type="hidden" name="preparation" value={{old("preparation")}}>
+                    <trix-editor
+                    class="form-control @error('preparation') is-invalid @enderror"
+                    input="preparation"></trix-editor>
                     @error('preparation')
                         <span class="invalid-feedback d-block" role="alert">
-                            <strong>{{ $message }}</strong>
+                            <strong>{{$message}}</strong>
                         </span>
                     @enderror
                 </div>

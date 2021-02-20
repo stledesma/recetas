@@ -37,6 +37,7 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
+    /* Relacion: uno a muchos - 1:n usuario->recetas*/
     public function userRecetas(){
         return $this->hasMany(Receta::class);
     }

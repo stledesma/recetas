@@ -6,7 +6,16 @@ use Illuminate\Database\Eloquent\Model;
 
 class Receta extends Model
 {
-    public function categoryReceta(){
-        return $this->belongsTo(Category::class, 'category_id');
+    protected $fillable = [
+        'name', 'preparation', 'ingredients', 'image', 'categoria_id'
+    ];
+
+    public function categoriaReceta(){
+        return $this->belongsTo(Categoria::class,'categoria_id');
+    }
+
+    //obtener información del usuario via user_id
+    public function autorReceta(){
+        return $this->belongsTo(User::class, 'user_id');
     }
 }

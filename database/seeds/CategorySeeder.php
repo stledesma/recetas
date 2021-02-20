@@ -12,32 +12,32 @@ class CategorySeeder extends Seeder
      */
     public function run()
     {
-        DB::table('category')->insert([
-            'name'=>'Pizza',
+        DB::table('categorias')->insert([
+            'nombre'=>'Pizza',
             'created_at'=> date('Y-m-d H:i:s'),
             'updated_at'=> date('Y-m-d H:i:s')
         ]);
 
-        DB::table('category')->insert([
-            'name'=>'Ensalada',
+        DB::table('categorias')->insert([
+            'nombre'=>'Ensalada',
             'created_at'=> date('Y-m-d H:i:s'),
             'updated_at'=> date('Y-m-d H:i:s')
         ]);
 
-        DB::table('category')->insert([
-            'name'=>'Postre',
+        DB::table('categorias')->insert([
+            'nombre'=>'Postre',
             'created_at'=> date('Y-m-d H:i:s'),
             'updated_at'=> date('Y-m-d H:i:s')
         ]);
 
-        DB::table('category')->insert([
-            'name'=>'Bebida',
+        DB::table('categorias')->insert([
+            'nombre'=>'Bebida',
             'created_at'=> date('Y-m-d H:i:s'),
             'updated_at'=> date('Y-m-d H:i:s')
         ]);
 
-        DB::table('category')->insert([
-            'name'=>'Almuerzo',
+        DB::table('categorias')->insert([
+            'nombre'=>'Almuerzo',
             'created_at'=> date('Y-m-d H:i:s'),
             'updated_at'=> date('Y-m-d H:i:s')
         ]);
