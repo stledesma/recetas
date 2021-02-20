@@ -65,7 +65,7 @@
                         @enderror
                     </div>
                     <div class="form-group">
-                        <label for="image">Imagen</label>
+                        <label for="image">Imagen: </label>
                         <input id=image type="file" class="form-control @error('image') is-invalid @enderror" name="image" >
                         <div class="mt-4">
                             <p>Imagen Actual</p>

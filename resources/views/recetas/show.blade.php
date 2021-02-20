@@ -25,7 +25,7 @@
 
         <div class="ingredientes">
         <p>
-            <span class="font-weight-bold text-primary">Ingredientes</span>
+            <span class="font-weight-bold text-primary">Ingredientes: </span>
             {!!$receta->ingredients!!} </p>
         </div>
 
