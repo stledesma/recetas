@@ -16,6 +16,8 @@
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
 
+    @yield('style')
+
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link rel="shortcut icon" href="{{ asset('images/cocina.png') }}" type="image/x-icon">
@@ -81,7 +83,7 @@
             </main>
         </div>
 
-
     </div>
+    @yield('scripts')
 </body>
 </html>
