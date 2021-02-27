@@ -21,7 +21,8 @@
                     <td>
                     <a href="{{route('recetas.show',['receta'=>$userReceta->id])}}" class="btn btn-success">Ver</a>
                     <a href="{{route('recetas.edit',['receta'=>$userReceta->id])}}" class="btn btn-dark">Editar</a>
-                    <a href="" class="btn btn-danger">Eliminar</a>
+                    <eliminar-receta id-receta={{$userReceta->id}}></eliminar-receta>
+
                     </td>
                 </tr>
              @endforeach

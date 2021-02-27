@@ -7,9 +7,10 @@ use App\Receta;
 use App\Category;
 use App\Categoria;
 use Illuminate\Http\Request;
-use Intervention\Image\Facades\Image;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
+use Intervention\Image\Facades\Image;
+use Illuminate\Auth\Middleware\Authorize;
 
 class RecetaController extends Controller
 {
@@ -118,6 +119,8 @@ class RecetaController extends Controller
      */
     public function update(Request $request, Receta $receta)
     {
+        //funcion para validar usuario usando policy
+        $this->authorize('update', $receta);
         $data = $request->validate([
             'name' => 'required',
             'category' => 'required',
@@ -130,6 +133,11 @@ class RecetaController extends Controller
             $receta->preparation=$data['preparation'];
             $receta->ingredients=$data['ingredients'];
             $receta->categoria_id=$data['category'];
+
+            //nueva imagen
+            $rutaImagen=$request['image']->store('upload-recetas','public');
+            $receta->image=$rutaImagen;
+
             $receta->save();
             return redirect()->action('RecetaController@index');
     }
@@ -142,6 +150,10 @@ class RecetaController extends Controller
      */
     public function destroy(Receta $receta)
     {
-        //
+        //funcion para validar usuario usando policy
+        $this->authorize('delete', $receta);
+         //metodo para eliminar
+         $receta->delete();
+         return redirect()->action('RecetaController@index');
     }
 }
